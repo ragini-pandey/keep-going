@@ -36,8 +36,7 @@ export default function CalendarGrid({ year, month, entries, onDayClick }: Props
       </div>
 
       <div className="flex items-center justify-center gap-4 mt-2 pt-2 border-t border-border-subtle/50">
-        <LegendItem color="bg-accent-green" label="Done" />
-        <LegendItem color="bg-accent-amber" label="Partial" />
+        <LegendItem color="bg-accent-cyan" label="Done" />
         <LegendItem color="bg-accent-red/60" label="Missed" />
 
       </div>

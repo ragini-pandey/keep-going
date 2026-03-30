@@ -4,7 +4,7 @@ import { todayKey } from "../utils";
 type Props = {
   goalData: GoalData;
   entries: Record<string, DayEntry>;
-  onMark: (status: "done" | "partial" | "missed") => void;
+  onMark: (status: "done" | "missed") => void;
   emotionalMessage: string | null;
 };
 
@@ -23,18 +23,14 @@ export default function TodayCard({ goalData, entries, onMark, emotionalMessage 
 
   const statusLabels: Record<DayStatus, string> = {
     none: "Not marked yet",
-    done: "Completed ✓",
-    partial: "Partial win ~",
+    done: "Completed ★",
     missed: "Missed",
-
   };
 
   const statusColors: Record<DayStatus, string> = {
     none: "text-text-muted",
-    done: "text-accent-green",
-    partial: "text-accent-amber",
+    done: "text-accent-cyan",
     missed: "text-accent-red",
-
   };
 
   return (
@@ -75,21 +71,11 @@ export default function TodayCard({ goalData, entries, onMark, emotionalMessage 
           onClick={() => onMark("done")}
           className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
             status === "done"
-              ? "bg-accent-green text-white shadow-lg shadow-accent-green-glow"
-              : "bg-accent-green/15 text-accent-green hover:bg-accent-green/25 border border-accent-green/30"
+              ? "bg-accent-cyan text-white shadow-lg shadow-accent-cyan-glow"
+              : "bg-accent-cyan/15 text-accent-cyan hover:bg-accent-cyan/25 border border-accent-cyan/30"
           }`}
         >
           Done
-        </button>
-        <button
-          onClick={() => onMark("partial")}
-          className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
-            status === "partial"
-              ? "bg-accent-amber text-white shadow-lg shadow-accent-amber-glow"
-              : "bg-accent-amber/15 text-accent-amber hover:bg-accent-amber/25 border border-accent-amber/30"
-          }`}
-        >
-          Partial
         </button>
         <button
           onClick={() => onMark("missed")}

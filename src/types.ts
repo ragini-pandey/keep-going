@@ -1,4 +1,4 @@
-export type DayStatus = "none" | "done" | "partial" | "missed";
+export type DayStatus = "none" | "done" | "missed";
 
 export type GoalData = {
   id: string;

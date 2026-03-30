@@ -83,7 +83,7 @@ export default function App() {
   );
 
   const handleMark = useCallback(
-    (status: "done" | "partial" | "missed") => {
+    (status: "done" | "missed") => {
       if (!activeGoal) return;
       const key = todayKey();
       const finalStatus = determineStatus(status, activeGoal.entries, key);
@@ -101,7 +101,7 @@ export default function App() {
   );
 
   const handleDayMark = useCallback(
-    (dateKey: string, status: "done" | "partial" | "missed") => {
+    (dateKey: string, status: "done" | "missed") => {
       if (!activeGoal) return;
       const finalStatus = determineStatus(status, activeGoal.entries, dateKey);
       updateData((prev) => ({
@@ -207,6 +207,7 @@ export default function App() {
           </div>
 
           <div className="flex flex-col min-h-0 gap-5">
+            <StatsRow entries={activeGoal.entries} year={viewYear} month={viewMonth} />
             <div className="flex-1 min-h-0">
               <CalendarGrid
                 year={viewYear}
@@ -215,7 +216,6 @@ export default function App() {
                 onDayClick={handleDayClick}
               />
             </div>
-            <StatsRow entries={activeGoal.entries} year={viewYear} month={viewMonth} />
           </div>
         </div>
       </main>

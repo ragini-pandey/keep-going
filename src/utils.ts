@@ -124,7 +124,7 @@ export function calculateConsistency(
     totalDays++;
     const key = formatDateKey(current);
     const status = entries[key]?.status;
-    if (status === "done" || status === "partial") {
+    if (status === "done") {
       completedDays++;
     }
     current.setDate(current.getDate() + 1);
@@ -133,9 +133,7 @@ export function calculateConsistency(
   return totalDays > 0 ? Math.round((completedDays / totalDays) * 100) : 0;
 }
 
-export function countPartialWins(entries: Record<string, DayEntry>): number {
-  return Object.values(entries).filter((e) => e.status === "partial").length;
-}
+
 
 
 export function backfillMissedDays(gwe: GoalWithEntries): Record<string, DayEntry> {
@@ -194,9 +192,9 @@ export function shouldShowMotivationPopup(gwe: GoalWithEntries): MotivationConte
 }
 
 export function determineStatus(
-  status: "done" | "partial" | "missed",
+  status: "done" | "missed",
   _entries: Record<string, DayEntry>,
   _dateKey?: string
-): "done" | "partial" | "missed" {
+): "done" | "missed" {
   return status;
 }

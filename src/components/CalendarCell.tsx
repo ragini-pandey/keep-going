@@ -28,8 +28,7 @@ export default function CalendarCell({ day, status, onClick }: Props) {
 
   const stateStyles: Record<DayStatus, string> = {
     none: "bg-bg-card border-border-subtle hover:bg-bg-card-hover",
-    done: "bg-accent-green/15 border-accent-green/40 text-accent-green",
-    partial: "bg-accent-amber/10 border-accent-amber/30 text-accent-amber",
+    done: "bg-accent-cyan/15 border-accent-cyan/40 text-accent-cyan",
     missed: "bg-accent-red-muted/30 border-accent-red/20 text-accent-red/60",
 
   };
@@ -37,7 +36,6 @@ export default function CalendarCell({ day, status, onClick }: Props) {
   const stateIcons: Record<DayStatus, string> = {
     none: "",
     done: "★",
-    partial: "~",
     missed: "",
   };
 

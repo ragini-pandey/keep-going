@@ -3,7 +3,7 @@ import type { DayStatus } from "../types";
 type Props = {
   dateKey: string;
   currentStatus: DayStatus;
-  onMark: (status: "done" | "partial" | "missed") => void;
+  onMark: (status: "done" | "missed") => void;
   onClose: () => void;
 };
 
@@ -17,10 +17,8 @@ export default function DayMarkModal({ dateKey, currentStatus, onMark, onClose }
 
   const statusLabels: Record<DayStatus, string> = {
     none: "Unmarked",
-    done: "Done ✓",
-    partial: "Partial ~",
+    done: "Done ★",
     missed: "Missed",
-
   };
 
   return (
@@ -44,21 +42,11 @@ export default function DayMarkModal({ dateKey, currentStatus, onMark, onClose }
             onClick={() => onMark("done")}
             className={`py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
               currentStatus === "done"
-                ? "bg-accent-green text-white"
-                : "bg-accent-green/15 text-accent-green hover:bg-accent-green/25 border border-accent-green/30"
+                ? "bg-accent-cyan text-white"
+                : "bg-accent-cyan/15 text-accent-cyan hover:bg-accent-cyan/25 border border-accent-cyan/30"
             }`}
           >
             Done
-          </button>
-          <button
-            onClick={() => onMark("partial")}
-            className={`py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
-              currentStatus === "partial"
-                ? "bg-accent-amber text-white"
-                : "bg-accent-amber/15 text-accent-amber hover:bg-accent-amber/25 border border-accent-amber/30"
-            }`}
-          >
-            Partial
           </button>
           <button
             onClick={() => onMark("missed")}
