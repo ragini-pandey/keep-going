@@ -16,13 +16,7 @@ const messages: Record<MotivationContext, string[]> = {
     "Come back today. Repair the chain before your mind drifts further.",
     "One bad day is a moment. Quitting is a pattern.",
   ],
-  "comeback": [
-    "This is the day that matters.",
-    "Your future self will remember this comeback.",
-    "Repaired days are stronger than untouched ones.",
-    "You came back. That's the hardest part, and you did it.",
-    "Comebacks are built from days exactly like this one.",
-  ],
+
   "consistent-streak": [
     "Quiet consistency is changing you.",
     "Every crossed day is a vote for the person you want to become.",
@@ -34,6 +28,14 @@ const messages: Record<MotivationContext, string[]> = {
     "You're close to losing momentum. One small action can keep it alive.",
     "Don't let today be the day the pattern breaks.",
     "The hardest days to show up are the ones that matter most.",
+  ],
+  "returning-after-absence": [
+    "You disappeared for a bit. That's okay. What matters is you're here now.",
+    "A few missed days don't erase everything you built. Pick up where you left off.",
+    "The hardest part of coming back is opening the app. You already did that.",
+    "Gaps happen. Quitting is when you stop returning. You didn't quit.",
+    "You're not starting over. You're starting from experience.",
+    "Every comeback story has a chapter that starts exactly like this.",
   ],
 };
 

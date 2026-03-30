@@ -1,6 +1,7 @@
-export type DayStatus = "none" | "done" | "partial" | "missed" | "repaired";
+export type DayStatus = "none" | "done" | "partial" | "missed";
 
 export type GoalData = {
+  id: string;
   goal: string;
   why: string;
   dailyMinimum: string;
@@ -13,9 +14,14 @@ export type DayEntry = {
   note?: string;
 };
 
-export type AppData = {
-  goalData: GoalData | null;
+export type GoalWithEntries = {
+  goalData: GoalData;
   entries: Record<string, DayEntry>;
+};
+
+export type AppData = {
+  goals: GoalWithEntries[];
+  selectedGoalId: string | null;
 };
 
 export type CalendarDay = {
@@ -29,6 +35,6 @@ export type CalendarDay = {
 export type MotivationContext =
   | "unmarked-today"
   | "missed-yesterday"
-  | "comeback"
   | "consistent-streak"
-  | "at-risk";
+  | "at-risk"
+  | "returning-after-absence";
