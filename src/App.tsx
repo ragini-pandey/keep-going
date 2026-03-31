@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useAppData } from "./useAppData";
 import { backfillMissedDays, shouldShowMotivationPopup, todayKey, determineStatus, getDayStatus, countRecentMissedDays } from "./utils";
 import { getMotivationalMessage } from "./messages";
+import { fireConfetti } from "./confetti";
 import type { GoalData, GoalWithEntries, MotivationContext } from "./types";
 import OnboardingForm from "./components/OnboardingForm";
 import Header from "./components/Header";
@@ -96,6 +97,7 @@ export default function App() {
         ),
       }));
       setShowMotivation(false);
+      if (status === "done") fireConfetti();
     },
     [activeGoal, updateData]
   );
@@ -113,6 +115,7 @@ export default function App() {
         ),
       }));
       setDayMarkKey(null);
+      if (status === "done") fireConfetti();
     },
     [activeGoal, updateData]
   );
